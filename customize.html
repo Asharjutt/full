@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize Your Product</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body style="background-color: hsl(0, 0%, 100%); color: #fff; font-family: Arial, sans-serif;">
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="logo" style="font-family: 'Raleway', sans-serif;">ASHAR.in</div>
+            <div class="menu" id="menu">
+             
+                <a href="index.html" class="hover-line">Home</a>
+                <a href="review.html" class="hover-line">Reviews</a>
+                <a href="contact.html" class="hover-line">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header><br><br><br><br>
+
+
+
+  <div class="customize-container">
+    <h1>Customize Your Own Product</h1>
+    <p>Choose your preferences and create a unique product tailored to your style!</p>
+
+    <form class="customize-form" onsubmit="showPopup(event)">
+      <div class="form-group">
+        <label for="color"><i class='bx bx-palette'></i> Choose Color</label>
+        <select id="color">
+          <option value="Red">Red</option>
+          <option value="Blue">Blue</option>
+          <option value="Green">Green</option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="productType"><i class='bx bx-cube'></i> Product Type</label>
+        <select id="productType">
+          <option value="T-Shirt">T-Shirt</option>
+          <option value="Mug">Mug</option>
+          <option value="Bag">Bag</option>
+          <option value="Phone Case">Phone Case</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="productImage"><i class='bx bx-link'></i> Product Image URL</label>
+        <input type="url" id="productImage" placeholder="Enter image URL for reference" required>
+      </div>
+      <button type="submit" class="submit-btn"><i class='bx bx-check'></i> Submit Customization</button>
+    </form>
+  </div>
+
+  <!-- Popup Notification -->
+  <div class="popup" id="popup">
+    <i class='bx bx-smile' ></i>
+    <span>We will make this type of product for you. <br> Thanks for your thoughts!</span>
+  </div>
+
+  <script>
+    function showPopup(event) {
+  event.preventDefault(); // Prevent the form from submitting normally
+
+  // Show the popup
+  const popup = document.getElementById('popup');
+  popup.classList.add('show');
+
+  // Hide the popup after 3 seconds
+  setTimeout(() => {
+    popup.classList.remove('show');
+  }, 3000);
+}
+
+  </script>
+
+
+
+
+
+
+
+
+
+<script>
+    //script of toggle
+
+    const menu = document.getElementById('menu');
+    const hamburger = document.getElementById('hamburger');
+
+    function toggleMenu() {
+        menu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,981 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+    font-family: 'Raleway', sans-serif;
+  }
+  
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e0dbdb;
+  color: rgb(0, 0, 0);
+  z-index: 10;
+  padding: 1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Desktop Menu */
+.menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  position: relative;
+  padding: 5px 0;
+}
+
+/* Hover Underline Animation */
+.hover-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #5b0f02;
+  transition: width 0.4s ease-in-out;
+}
+
+.hover-line:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.hamburger span {
+  background-color: rgb(0, 0, 0);
+  height: 2px;
+  width: 25px;
+  margin: 5px 0;
+  transition: all 0.6s ease;
+}
+
+/* Media Query for Small Screens */
+@media (max-width: 480px) {
+  .menu {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 60%;
+    background-color: #e0dbdb;
+    flex-direction: column;
+    text-transform:initial;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 3s ease-in-out;
+  }
+
+  .menu.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Transform Hamburger into Close Icon */
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Carousel Container */
+ .carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  margin-top:80px ;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel Slides */
+.carousel-slide {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Carousel Image */
+.carousel-image {
+  min-width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Carousel Buttons (optional, if you want manual control) */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+
+
+
+
+/* Card container to arrange cards in a row */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+/* Basic styling for individual cards */
+.card {
+  width: 23%; /* Four cards per row on larger screens */
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image styling */
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Styling for Details button */
+.detail-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.detail-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Card hover animation */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive styling for 480px screens */
+@media (max-width: 480px) {
+  .card {
+      width: calc(50% - 8px); /* Two cards per row */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.discount-offer-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  margin-top: 20px; /* Space above the section */
+}
+
+.discount-offer-card {
+  width: 300px; /* Card width */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: auto; /* Center the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.discount-offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.discount-image {
+  width: 100%;
+  height: 200px; /* Adjust height as necessary */
+  object-fit: cover;
+}
+
+.discount-info {
+  padding: 10px;
+}
+
+.discount-info h3 {
+  margin: 5px 0;
+  color: #5b0f02; /* Red color for emphasis */
+}
+
+.discount-info p {
+  color: #555;
+}
+
+.discount-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #5b0f02;/* Red background for the badge */
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+.daily-update-section {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1; /* Light background for contrast */
+  margin-top: 20px; /* Space above the section */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.subscribe-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.email-input {
+  padding: 10px;
+  width: 250px; /* Width of the email input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px; /* Space between input and button */
+}
+
+.subscribe-button {
+  padding: 10px 15px;
+  background-color: #5b0f02; /* Red color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center; /* Center icon vertically */
+}
+
+.subscribe-button i {
+  margin-right: 5px; /* Space between icon and text */
+ 
+}
+
+.subscribe-button:hover {
+  background-color: #5b0f02; /* Darker red on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer-section {
+  background-color:#e0dbdb; /* Dark background for contrast */
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content */
+  margin-bottom: 10px; /* Space between content and rights */
+}
+
+.footer-logo {
+  margin-bottom: 10px; /* Space below the logo */
+}
+
+.brand-logo {
+  width: 100px; /* Adjust logo size as needed */
+}
+
+.footer-address {
+  margin: 10px 0; /* Space above and below the address */
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px; /* Space between icons */
+  margin: 10px 0; /* Space above and below the links */
+}
+
+.footer-icon {
+  color: rgb(0, 0, 0); /* Icon color */
+  font-size: 24px; /* Size of the icons */
+  transform: translateY(20%);
+  transition: transform 1s ease-in-out;
+}
+
+.footer-icon:hover {
+  color:#5b0f02; /* Change color on hover */
+  transform: translateX(0);
+}
+@keyframes slide-left {
+  0% {
+      transform: scaleX(1);
+  }
+  20% {
+      transform: scaleX(0);
+  }
+}
+
+
+.footer-rights {
+  border-top: 1px solid #3b0000; /* Top border for separation */
+  padding-top: 10px; /* Space above the rights text */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn
+{
+  background-color: #3b0000;
+  color: white;
+  padding: 5px;
+  width: 100%;
+}
+.btn:hover
+{
+  background-color: #5e0505;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* customers support */
+.chat-bot-button {
+  background-color: #5b0f02;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.chat-bot-button i {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.chat-box {
+  background-color: #fff;
+  color: #333;
+  width: 300px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  display: none;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+}
+
+.chat-header {
+  background-color: #5b0f02;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.chat-header i {
+  cursor: pointer;
+}
+
+.chat-content {
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.bot-message, .user-message {
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  text-align: left;
+}
+
+.user-options button {
+  background-color: #5b0f02;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-options button:hover {
+  background-color: #7d1603;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.chat-input button {
+  background: #5b0f02;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+
+.user-message {
+  background-color: #5b0f02;
+  color: #fff;
+  width: auto;
+  text-align: right;
+}
+
+/* customers support */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* contact us */
+
+.contact-container {
+  background-color: #fff;
+  color: #333;
+  margin-top: 100px;
+  padding: 20px;
+ margin-left: 30%;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contact-container h1 {
+  color: #5b0f02;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  color: #5b0f02;
+  margin-bottom: 10px;
+}
+
+.contact-item i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.contact-form label {
+  display: flex;
+  align-items: center;
+  color: #5b0f02;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.contact-form label i {
+  margin-right: 8px;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: #5b0f02;
+}
+
+.submit-btn {
+  background-color: #5b0f02;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn i {
+  margin-right: 8px;
+}
+
+.submit-btn:hover {
+  background-color: #7d1603;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For screens up to 768px (tablets) */
+@media (max-width: 768px) {
+  .contact-container {
+    width: 50%;
+    padding: 15px;
+    margin-left: 150px;
+  }
+
+  .contact-info {
+    margin-bottom: 15px;
+  }
+
+  .contact-item i {
+    font-size: 20px;
+  }
+
+  .submit-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+/* For screens up to 480px (mobile phones) */
+@media (max-width: 480px) {
+  .contact-container {
+    width: 80%;
+    margin-left: 45px;
+    padding: 10px;
+  }
+
+  .contact-container h1 {
+    font-size: 1.5em;
+  }
+
+  .contact-item i {
+    font-size: 18px;
+  }
+
+  .contact-form input, .contact-form textarea {
+    padding: 8px;
+  }
+
+  .submit-btn {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* contact us */
+
+
+
+/* custumize*/
+
+
+.customize-container {
+  background-color: #fff;
+  margin-left: 400px;
+  color: #333;
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.customize-container h1 {
+  color: #5b0f02;
+}
+
+.customize-form .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.customize-form label {
+  display: flex;
+  align-items: center;
+  color: #5b0f02;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.customize-form label i {
+  margin-right: 8px;
+}
+
+.customize-form select, .customize-form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.customize-form select:focus, .customize-form input:focus {
+  border-color: #5b0f02;
+}
+
+.submit-btn {
+  background-color: #5b0f02;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.submit-btn i {
+  margin-right: 8px;
+}
+
+.submit-btn:hover {
+  background-color: #7d1603;
+}
+
+/* Popup Styles */
+.popup {
+  position: fixed;
+  right: -800px;
+  top: 15%;
+  background-color: #fff;
+  color: #5b0f02;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  transition: right 0.5s ease-in-out;
+}
+
+.popup i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.popup.show {
+  right: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .customize-container {
+    width: 50%;
+    padding: 15px;
+    margin-left: 150px;
+  }
+
+  .submit-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .customize-container {
+    width:80%;
+    padding: 10px;
+    margin-left: 50px;
+  }
+
+  .customize-container h1 {
+    font-size: 1.5em;
+  }
+
+  .submit-btn {
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* custumize*/
+
+
+
+
+
+
+
+
+/*reviews*/
+/* General Styles */
+body {
+  font-family: 'Raleway', sans-serif;
+ 
+}
+
+/* Reviews Container */
+.reviews-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.reviews-container h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Review Card */
+.review-card {
+  background-color: #fff;
+  color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.8s forwards;
+}
+
+.review-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.review-content h3 {
+  display: flex;
+  align-items: center;
+  color: #5b0f02;
+  font-weight: 600;
+  margin: 0;
+}
+
+.review-content h3 i {
+  color: #FFD700;
+  margin-right: 5px;
+}
+
+.review-content p {
+  color: #555;
+  font-size: 0.9em;
+}
+
+/* Animations */
+@keyframes slideUp {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reviews-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-card {
+    padding: 10px;
+  }
+  
+  .review-content h3 {
+    font-size: 1em;
+  }
+
+  .review-content p {
+    font-size: 0.85em;
+  }
+}
+
+/*reviews*/

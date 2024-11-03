@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Description</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="logo">Logo</div>
+            <div class="menu" id="menu">
+                <a href="#customized-product" class="hover-line">Customized Product</a>
+                <a href="#customer-support" class="hover-line">Customer Support</a>
+                <a href="#contact-us" class="hover-line">Contact Us</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header><br>
+
+
+
+    
+        <br><br><div class="description-container">
+            <!-- Left Side Image -->
+            <div class="image-container">
+                <img src="disc.png" alt="Product Image">
+            </div>
+    
+            <!-- Right Side Description and Order Form -->
+            <div class="description-content">
+                <h2 style="text-align: center; text-transform: uppercase; color: #5b0f02;">Description</h2>
+                <p style="text-align: center; color:#5b0f02;">Enjoy 50% off on our premium product! Don't miss this limited-time offer!</p>
+                <p><strong style="color: #5b0f02; font-size: 20px;">Price:</strong> $49.99</p>
+                <p><strong style="color: #5b0f02; font-size: 20px;">Details:</strong> High-quality product with a special discount.</p>
+                <p><strong style="color: #5b0f02; font-size: 20px;">Colors Available:</strong> Red, Blue, Green</p>
+                
+                <!-- Order Form -->
+                <form id="order-form" onsubmit="placeOrder(event)">
+                    <label for="email" style="color: black; justify-content: center; font-size: 20px;">Order Email:</label>
+                    <input type="email" id="email" placeholder="@gmail.com" required>
+                    <button class="btn" style="background-color: #5b0f02; border-radius: 20px;">Submit Order</button>
+                </form>
+            </div>
+        </div>
+    
+        <!-- Popup Notification with Animated Underline -->
+        <div id="popup" class="popup">
+           THANKS FOR ORDERING !
+           
+        </div>
+    
+        <script>
+            // JavaScript function to display the order placed popup
+            function placeOrder(event) {
+                event.preventDefault(); // Prevent form submission
+                const popup = document.getElementById('popup');
+                popup.classList.add('show');
+                setTimeout(() => {
+                    popup.classList.remove('show');
+                }, 3000); // Hide popup after 3 seconds
+            }
+        </script>
+
+
+<script>
+    //script of toggle
+
+    const menu = document.getElementById('menu');
+    const hamburger = document.getElementById('hamburger');
+
+    function toggleMenu() {
+        menu.classList.toggle('open');
+        hamburger.classList.toggle('open');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+  </script>
+    </body>
+    </html>
+    
